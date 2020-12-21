@@ -32,7 +32,7 @@ type ircConnection struct {
 
 func (i *ircConnection) OnWelcome(e *irc.Event) {
 	i.JoinChannels()
-	i.innerCon.SendRawf("MODE %s +D", i.innerCon.GetNick())
+	i.innerCon.SendRawf("MODE %s +DB", i.innerCon.GetNick())
 
 	go func(i *ircConnection) {
 		for m := range i.messages {
